@@ -1,0 +1,27 @@
+.btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 1em 2em;
+
+  &--primary {
+    box-shadow: 0 0.5em 1em rgba(66, 0, 255, 0.3);
+    background-color: var(--primaryColor);
+    color: var(--colorWhite);
+  }
+
+  &--secondary {
+    border: 1px solid var(--primaryText);
+    border-radius: 4px;
+    padding: 8px 1.6rem;
+  }
+}

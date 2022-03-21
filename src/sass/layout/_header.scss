@@ -1,0 +1,39 @@
+// < 500px
+.header {
+  margin: 0 auto;
+  width: 120rem;
+  max-width: 90%;
+
+  &__contents {
+    display: grid;
+    padding: 4rem 0;
+    min-height: 600px;
+  }
+
+  // Incase img is too large to fit the content
+  &__hero {
+    grid-row: 1 / 2;
+    overflow: hidden;
+    display: none;
+
+    &.mobile__img {
+      display: inline-block;
+    }
+
+    // Hero Image
+    .hero__img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transform: scale(1.25);
+    }
+  }
+
+  &__text {
+    padding-block: 4rem;
+
+    p {
+      max-width: 100%;
+    }
+  }
+}

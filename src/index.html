@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Galingan - Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- new -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation">
+        <div class="logo">
+          <span class="navigation__logo">Portfolio</span>
+        </div>
+
+        <div class="navigation__icon">
+          <i class="ph-list"></i>
+        </div>
+
+        <div class="navigation__list__container">
+          <ul class="navigation__list">
+            <li class="navigation__item">
+              <a href="#" class="navigation__link">Skills</a>
+            </li>
+            <li class="navigation__item">
+              <a href="#" class="navigation__link">Projects</a>
+            </li>
+            <li class="navigation__item">
+              <a href="#" class="navigation__link">Web Redesigns</a>
+            </li>
+            <li class="navigation__item">
+              <a href="#" class="navigation__link btn--secondary">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="header__contents">
+        <!-- 1 -->
+        <div class="header__text">
+          <span class="detail"> &minus; Profile</span>
+          <h1 class="headings headings--lg mt--xs mb--sm">
+            Hi, I'm John Andrey
+          </h1>
+          <p class="mb--md">
+            As an aspirant frontend developer from Bulacan. I specialized in
+            bringing UI/UX design principles into all of my projects.
+          </p>
+          <button class="btn btn--primary">
+            Get Started <i class="ph-arrow-right ml-xs"></i>
+          </button>
+        </div>
+
+        <!-- 2 -->
+        <div class="header__hero mobile__img">
+          <img
+            src="img/collaboration.svg"
+            alt="hero banner"
+            class="hero__img"
+          />
+        </div>
+
+        <div class="header__hero desktop__img">
+          <img src="img/profile.svg" alt="hero banner" class="hero__img" />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="skills" data-aos="fade-up" data-aos-duration="1000">
+        <div class="skills__container">
+          <div class="col__1">
+            <span class="detail"> &minus; Skill sets</span>
+            <h2 class="headings mb--sm">What I do?</h2>
+            <p class="ml--xs mb--lg">
+              As an aspirant frontend developer, most of my skills are heavily
+              focused on different frontend technologies.
+            </p>
+
+            <!-- Grid -->
+            <div class="skills__list">
+              <div class="skills__item">
+                <img src="img/html-5.png" alt="html5-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/css-3.png" alt="css-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/js.png" alt="js-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/sass.png" alt="sass-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/tailwindcss.png" alt="tailwindcss-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/git.png" alt="git-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/xd.png" alt="xd-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/figma.png" alt="figma-icon" />
+              </div>
+              <div class="skills__item">
+                <img src="img/ux.png" alt="ux-icon" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col__2">
+            <div class="skills__img">
+              <img src="img/reading.svg" alt="reading" class="reading" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
+
+<!-- Problem image switching header -->
