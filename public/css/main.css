@@ -56,6 +56,76 @@
   .skills .reading {
     display: block !important;
   }
+
+  .carousel {
+    position: relative;
+    height: 80vh !important;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .carousel__container {
+    position: relative;
+    overflow: hidden;
+    transition: transform 250ms ease-in;
+    height: 100%;
+    margin: 0 auto;
+    width: 92.5%;
+  }
+  .carousel__list {
+    position: relative;
+    list-style: none;
+    height: 100%;
+  }
+  .carousel__slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  .carousel__img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #c0c0c0;
+    color: var(--primaryText);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 1.6rem 0;
+    min-height: 14rem;
+    min-width: 6rem;
+  }
+  .carousel__btn--disabled {
+    color: #b8b8b8;
+    background-color: #ddd;
+  }
+  .carousel__btn--left {
+    left: -3.2rem;
+  }
+  .carousel__btn--right {
+    right: -3.2rem;
+  }
+  .carousel__counter {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-80%);
+    color: #504d4d;
+    font-size: 1.4rem;
+  }
+  .carousel__nav {
+    display: none !important;
+  }
 }
 :root {
   --mainBackgroundColor: #f2f2f2;
@@ -190,6 +260,62 @@ body p {
   color: currentColor;
   font-size: 1.6rem;
   text-decoration: none;
+}
+
+.projects {
+  padding-block: min(15vh, 6rem);
+  margin: 0 auto;
+  width: 90%;
+}
+
+.carousel {
+  position: relative;
+  height: 50vh;
+  margin: 0 auto;
+  width: 90%;
+}
+.carousel__container {
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms ease-in;
+  height: 100%;
+  margin: 0 auto;
+  width: 92.5%;
+}
+.carousel__list {
+  position: relative;
+  list-style: none;
+  height: 100%;
+}
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-top: 2.4rem;
+  width: 100%;
+}
+.carousel__img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.carousel__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+.carousel__indicator {
+  background-color: #c0c0c0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 1.2rem;
+  height: 2rem;
+  width: 2rem;
+}
+.carousel__indicator.active {
+  background-color: #504d4d;
 }
 
 .header {

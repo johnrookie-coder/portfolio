@@ -17,7 +17,7 @@
     <!-- new -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
   </head>
   <body>
     <header class="header">
@@ -129,15 +129,65 @@
           </div>
         </div>
       </section>
+
+      <!-- Carousels -->
+      <section class="projects">
+        <span class="detail"> &minus; Projects</span>
+        <h2 class="headings mb--sm">What did I create?</h2>
+        <p class="ml--xs mb--lg w-50">
+          Here are some of the projects that I've designed and took a challenge
+          from frontend mentor.
+        </p>
+
+        <div class="carousel">
+          <button
+            class="carousel__btn carousel__btn--left carousel__btn--disabled"
+          >
+            <i class="ph-arrow-left"></i>
+            <span></span>
+          </button>
+          <div class="carousel__container">
+            <ul class="carousel__list">
+              <li class="carousel__slide current-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  alt="image-1"
+                  class="carousel__img"
+                />
+              </li>
+              <li class="carousel__slide">
+                <img
+                  src="https://images.unsplash.com/photo-1587502537745-84b86da1204f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  alt="ocean"
+                  class="carousel__img"
+                />
+              </li>
+              <li class="carousel__slide">
+                <img
+                  src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  alt=""
+                  class="carousel__img"
+                />
+              </li>
+            </ul>
+          </div>
+
+          <button class="carousel__btn carousel__btn--right">
+            <i class="ph-arrow-right"></i>
+            <!-- <span class="carousel__counter">1/3</span> -->
+          </button>
+
+          <div class="carousel__nav">
+            <button class="carousel__indicator active"></button
+            ><button class="carousel__indicator"></button
+            ><button class="carousel__indicator"></button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="https://unpkg.com/phosphor-icons"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-      AOS.init();
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>
-
-<!-- Problem image switching header -->
