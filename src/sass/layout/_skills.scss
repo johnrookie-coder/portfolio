@@ -12,6 +12,12 @@
     display: grid;
     grid-template-columns: repeat(3, 9rem);
     gap: 3rem;
+
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   &__item {
@@ -20,25 +26,20 @@
     border-radius: 6px;
     padding: 2rem;
     text-align: center;
-
-    img {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
   }
 
   &__img {
     height: 100%;
     width: 100%;
+
     img {
       object-fit: cover;
       height: 100%;
       width: 100%;
     }
   }
+}
 
-  .reading {
-    display: none;
-  }
+.reading {
+  display: none;
 }

@@ -1,4 +1,3 @@
-// Practice version
 "use strict";
 
 const carouselList = document.querySelector(".carousel__list");
@@ -11,64 +10,85 @@ const carouselNav = document.querySelector(".carousel__nav");
 const carouselIndicator = Array.from(
   document.querySelectorAll(".carousel__indicator")
 );
-console.log(carouselIndicator);
 
 let counter = 0;
 
-spanCounter.classList.add("carousel__counter");
-spanCounter.textContent = `${counter + 1} / ${slides.length}`;
-btnNextSlide.appendChild(spanCounter);
-
 /**
- * This function generates "left" property for each individual slides based on the slideWidth.
- * @param {array} slides - receives an array of "carousel__slide"
+ * This function generates the width of each slides, by multiplying the width of the slide[0] based on the index position of the next slide.
+ * @param {individualSlide} slide - individual list item / "carousel__slide"
+ * @param {indexPosition} idx - index positions of the "carousel__slide"
  */
-const setSlidesPosition = function (slides) {
-  // Based on the logic in the CSS, the last "carousel__slide" is the visible part (stacked on top of each other)
-  // We generate the "left" property for each iteration which results to "slide[0] left is set to 0px" which begins our starting point since the carousel__container has an "overflow: hidden;"
-  slides.forEach((slide, idx) => {
-    slide.style.left = `${slideWidth * idx}px`;
-  });
+
+const slidesWidth = function (slide, idx) {
+  slide.style.left = `${slideWidth * idx}px`;
 };
 
 /**
- *
- * @param {ul} list - receives the "carousel__list element"
- * @param {activeSlide} currentSlide - receives the list item on which the "current-slide" is placed.
- * @param {element} targetSlide - receives the "nextElement or previousElementSibling"
+ * This function receives three parameter that will be use to identify the movement of the slides.
+ * @param {element} list - receives the unordered list / "carousel__list"
+ * @param {activeSlide} currentSlide - receives the location of the active slide
+ * @param {btn} targetSlide -receives whether it is a previous or next button.
  */
+
 const moveToSlides = function (list, currentSlide, targetSlide) {
-  // If the "currentSlide" has an previousElementSibling or nextElementSibling
+  // This will run if the current slide (li element) have nextElement or previousElement.
   if (targetSlide) {
-    // Removes the "current-slide" on the active slide.
+    // Remove the class of "current-slide" to the active slide.
     currentSlide.classList.remove("current-slide");
 
-    // Moves to slides
-    // nextSlide.style.left = we are getting the "left property of the nextElementSibling" of the active slide and use it as a value of the "transform:translateX()"
-    // Todo: explain negative value in translateX
+    // The value of the "translateX" is coming from the left property of the next / previous slide.
+    // Slide direction: from left to right (negative value given to "left")
     list.style.transform = `translateX(-${targetSlide.style.left})`;
 
-    // Add the "current-slide" class to the  targetSlide (next or prev sibling)
+    // Add the class of "current-slide" to the next slide.
     targetSlide.classList.add("current-slide");
   }
 };
 
-const updateDots = function (currentDot, targetDot) {
-  carouselIndicator[currentDot].classList.remove("active");
-  targetDot.classList.add("active");
+/**
+ * This function sets the styling and the content of an empty "span" element we created.
+ * @param {element} counterEl receives an empty "span" element
+ */
+
+const createAndStyleCounter = function (counterEl) {
+  // Add the class "carousel__counter"
+  counterEl.classList.add("carousel__counter");
+  counterEl.textContent = `1/${slides.length}`;
+  btnNextSlide.append(counterEl);
 };
 
-// Button: Next
-btnNextSlide.addEventListener("click", () => {
-  // From the carouselList, select the element with a class of "current-slide"
-  const currentSlide = carouselList.querySelector(".current-slide");
-  const nextSlide = currentSlide.nextElementSibling;
+/**
+ * This function add and removes the class of "active" when specific dots have been "click".
+ * @param {*} currentDot - receives the location of the "active" dot.
+ * @param {*} targetDot - adds a class of active to the "clicked" dot.
+ */
 
-  // Moves to slides
+const updateDots = function (currentDot, targetDot) {
+  if (targetDot) {
+    // Remove the class of "active" of the current dot.
+    currentDot.classList.remove("active");
+
+    // Add the class of "active" to the targetDot.
+    targetDot.classList.add("active");
+  }
+};
+
+// Button: NextSlide
+btnNextSlide.addEventListener("click", () => {
+  // Get the location of the "current-slide"
+  const currentSlide = carouselList.querySelector(".current-slide");
+  // Get the location of the "next sibling / li" after the "current-slide"
+  const nextSlide = currentSlide.nextElementSibling;
+  // Get the location of the active dot
+  const currentDot = carouselNav.querySelector(".active");
+  // Get the next dot
+  const nextDot = currentDot.nextElementSibling;
+
   if (counter !== slides.length - 1) {
     counter++;
+    spanCounter.textContent = `${counter + 1}/${slides.length}`;
     moveToSlides(carouselList, currentSlide, nextSlide);
-    spanCounter.textContent = `${counter + 1} / ${slides.length}`;
+    updateDots(currentDot, nextDot);
     btnPrevSlide.classList.remove("carousel__btn--disabled");
   }
 
@@ -76,58 +96,63 @@ btnNextSlide.addEventListener("click", () => {
     btnNextSlide.classList.add("carousel__btn--disabled");
 });
 
-// Button: Previous
+// Button: PrevSlide
 btnPrevSlide.addEventListener("click", () => {
-  // From the carouselList, select the element with a class of "current-slide"
   const currentSlide = carouselList.querySelector(".current-slide");
   const prevSlide = currentSlide.previousElementSibling;
+  const currentDot = carouselNav.querySelector(".active");
+  const prevDot = currentDot.previousElementSibling;
 
   if (counter >= 1) {
     counter--;
+    spanCounter.textContent = `${counter + 1}/${slides.length}`;
     moveToSlides(carouselList, currentSlide, prevSlide);
-    spanCounter.textContent = `${counter + 1} / ${slides.length}`;
+    updateDots(currentDot, prevDot);
     btnNextSlide.classList.remove("carousel__btn--disabled");
   }
 
   if (counter === 0) btnPrevSlide.classList.add("carousel__btn--disabled");
 });
 
+// Add click event for each dots
 carouselIndicator.forEach((indicator, idx) => {
   indicator.addEventListener("click", (e) => {
+    // Get the location of the target dot
     const targetDot = e.target.closest("button");
-    const currentDot = carouselIndicator.findIndex((nav) =>
-      nav.classList.contains("active")
-    );
+
+    // Get the location of the "current-slide"
     const currentSlide = carouselList.querySelector(".current-slide");
+
+    // Get the location of the "active dot"
+    const currentDot = carouselNav.querySelector(".active");
+
+    // Get the left property of the "click" dot
     const targetSlide = slides[idx];
 
+    // Set the counter to index position of the "click" "carousel__indicator"
+    counter = idx;
     moveToSlides(carouselList, currentSlide, targetSlide);
     updateDots(currentDot, targetDot);
 
-    carouselIndicator[currentDot].classList.remove("active");
-    targetDot.classList.add("active");
+    if (counter === 0) {
+      btnPrevSlide.classList.add("carousel__btn--disabled");
+      btnNextSlide.classList.remove("carousel__btn--disabled");
+      spanCounter.textContent = `${counter + 1}/${slides.length}`;
+    } else if (counter === slides.length - 1) {
+      btnPrevSlide.classList.remove("carousel__btn--disabled");
+      btnNextSlide.classList.add("carousel__btn--disabled");
+      spanCounter.textContent = `${counter + 1}/${slides.length}`;
+    } else {
+      btnPrevSlide.classList.remove("carousel__btn--disabled");
+      btnNextSlide.classList.remove("carousel__btn--disabled");
+      spanCounter.textContent = `${counter + 1}/${slides.length}`;
+    }
   });
 });
-// const reloadBreakpoints = function () {
-//   const width = window.screen.width;
 
-//   // if (width > 992 && !window.location.hash) {
-//   //   // console.log("less");
-//   //   window.location = window.location + "#loaded";
-//   //   window.location.reload();
-//   // }
-
-//   if (width < 992 && !window.location.hash) {
-//     slides.forEach((slide, idx) => {
-//       slide.style.left = `0px`;
-//     });
-
-//     window.location = window.location + "#loaded";
-//     window.location.reload();
-//   }
-// };
-
-// reloadBreakpoints();
-// Animate on scroll
-AOS.init();
-setSlidesPosition(slides);
+// IIFE
+(function () {
+  AOS.init();
+  slides.forEach(slidesWidth);
+  createAndStyleCounter(spanCounter);
+})();

@@ -99,24 +99,25 @@
 
   margin: 0 auto;
   width: 90%;
+
+  p {
+    width: 80%;
+  }
 }
 
 .carousel {
   position: relative;
-
   height: 50vh;
-  margin: 0 auto;
-  width: 90%;
+  width: 100%;
 
   &__container {
     // Relative to the carousel element
     position: relative;
     overflow: hidden;
-    transition: transform 250ms ease-in;
 
     height: 100%;
     margin: 0 auto;
-    width: 92.5%;
+    width: 100%;
   }
 
   &__list {
@@ -143,56 +144,50 @@
     width: 100%;
   }
 
-  // // Absolute to the carousel element (left and right)
-  // &__btn {
-  //   position: absolute;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   font-size: 3.2rem;
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   justify-content: center;
-  //   text-align: center;
+    background-color: var(--darkGrayBg);
+    color: var(--primaryText);
+    font-size: 3.2rem;
+    text-align: center;
 
-  //   background-color: #c0c0c0;
-  //   color: var(--primaryText);
+    cursor: pointer;
+    border: none;
+    outline: none;
 
-  //   cursor: pointer;
-  //   border: none;
-  //   outline: none;
+    padding: 1.6rem 0;
+    min-height: 14rem;
+    min-width: 6rem;
 
-  //   padding: 1.6rem 0;
-  //   min-height: 14rem;
-  //   min-width: 6rem;
+    &--disabled {
+      color: var(--gray);
+      background-color: var(--lightGrayBg);
+    }
 
-  //   &--disabled {
-  //     color: rgb(184, 184, 184);
-  //     background-color: #ddd;
-  //   }
+    &--left {
+      display: none;
+    }
 
-  //   &--left {
-  //     left: -3.2rem;
-  //   }
+    &--right {
+      display: none;
+    }
+  }
 
-  //   &--right {
-  //     right: -3.2rem;
-  //   }
-  // }
+  // Absolute to the carousel__btn
+  &__counter {
+    position: absolute;
+    top: 80%;
+    left: 1.6rem;
+    transform: translateY(-80%);
 
-  // // Absolute to the carousel__btn
-  // &__counter {
-  //   position: absolute;
-  //   top: 80%;
-  //   transform: translateY(-80%);
-
-  //   color: rgb(80, 77, 77);
-  //   font-size: 1.4rem;
-  // }
+    color: rgb(80, 77, 77);
+    font-size: 1.4rem;
+  }
 
   &__nav {
-    // background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -200,7 +195,7 @@
   }
 
   &__indicator {
-    background-color: #c0c0c0;
+    background-color: var(--indicatorBg);
     border: 0;
     border-radius: 50%;
     cursor: pointer;
@@ -210,10 +205,8 @@
     width: 2rem;
 
     &.active {
-      background-color: rgb(80, 77, 77);
+      // background-color: rgb(80, 77, 77);
+      background-color: var(--primaryText);
     }
   }
 }
-
-// todo
-// Problem once it gets on bigger screen to smaller screen the picture is not working because on bigger screen the "left" property has been initialized.

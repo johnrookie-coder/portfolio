@@ -44,6 +44,10 @@
     grid-template-columns: repeat(4, 12rem) !important;
     gap: 3rem 2.4rem;
   }
+  .skills__item img {
+    height: 6.4rem !important;
+    width: 6.4rem I !important;
+  }
   .skills__img {
     height: 100%;
     width: 100%;
@@ -54,77 +58,32 @@
     width: 100%;
   }
   .skills .reading {
-    display: block !important;
+    display: block;
   }
 
-  .carousel {
+  .projects p {
+    width: 50% !important;
+  }
+  .projects .carousel {
     position: relative;
-    height: 80vh !important;
+    height: 80vh;
     margin: 0 auto;
     width: 90%;
   }
-  .carousel__container {
-    position: relative;
-    overflow: hidden;
+  .projects .carousel__container {
     transition: transform 250ms ease-in;
-    height: 100%;
-    margin: 0 auto;
     width: 92.5%;
   }
-  .carousel__list {
-    position: relative;
-    list-style: none;
-    height: 100%;
+  .projects .carousel__slide {
+    margin-top: 0;
   }
-  .carousel__slide {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-  }
-  .carousel__img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-  .carousel__btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 3.2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #c0c0c0;
-    color: var(--primaryText);
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding: 1.6rem 0;
-    min-height: 14rem;
-    min-width: 6rem;
-  }
-  .carousel__btn--disabled {
-    color: #b8b8b8;
-    background-color: #ddd;
-  }
-  .carousel__btn--left {
+  .projects .carousel__btn--left {
+    display: inline-block;
     left: -3.2rem;
   }
-  .carousel__btn--right {
+  .projects .carousel__btn--right {
+    display: inline-block;
     right: -3.2rem;
-  }
-  .carousel__counter {
-    position: absolute;
-    top: 80%;
-    transform: translateY(-80%);
-    color: #504d4d;
-    font-size: 1.4rem;
-  }
-  .carousel__nav {
-    display: none !important;
   }
 }
 :root {
@@ -133,6 +92,10 @@
   --primaryText: #413663;
   --colorWhite: #f2f1f4;
   --logoColor: #8e1c58;
+  --gray: #b8b8b8;
+  --indicatorBg: #c0c0c0;
+  --lightGrayBg: #dddddd;
+  --darkGrayBg: #bbbbbb;
 }
 
 *,
@@ -267,20 +230,21 @@ body p {
   margin: 0 auto;
   width: 90%;
 }
+.projects p {
+  width: 80%;
+}
 
 .carousel {
   position: relative;
   height: 50vh;
-  margin: 0 auto;
-  width: 90%;
+  width: 100%;
 }
 .carousel__container {
   position: relative;
   overflow: hidden;
-  transition: transform 250ms ease-in;
   height: 100%;
   margin: 0 auto;
-  width: 92.5%;
+  width: 100%;
 }
 .carousel__list {
   position: relative;
@@ -299,6 +263,39 @@ body p {
   height: 100%;
   width: 100%;
 }
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--darkGrayBg);
+  color: var(--primaryText);
+  font-size: 3.2rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 1.6rem 0;
+  min-height: 14rem;
+  min-width: 6rem;
+}
+.carousel__btn--disabled {
+  color: var(--gray);
+  background-color: var(--lightGrayBg);
+}
+.carousel__btn--left {
+  display: none;
+}
+.carousel__btn--right {
+  display: none;
+}
+.carousel__counter {
+  position: absolute;
+  top: 80%;
+  left: 1.6rem;
+  transform: translateY(-80%);
+  color: #504d4d;
+  font-size: 1.4rem;
+}
 .carousel__nav {
   display: flex;
   align-items: center;
@@ -306,7 +303,7 @@ body p {
   gap: 1.6rem;
 }
 .carousel__indicator {
-  background-color: #c0c0c0;
+  background-color: var(--indicatorBg);
   border: 0;
   border-radius: 50%;
   cursor: pointer;
@@ -315,7 +312,7 @@ body p {
   width: 2rem;
 }
 .carousel__indicator.active {
-  background-color: #504d4d;
+  background-color: var(--primaryText);
 }
 
 .header {
@@ -363,17 +360,17 @@ body p {
   grid-template-columns: repeat(3, 9rem);
   gap: 3rem;
 }
+.skills__list img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
 .skills__item {
   box-shadow: 0 8px 16px rgba(65, 54, 99, 0.2);
   background-color: var(--mainBackgroundColor);
   border-radius: 6px;
   padding: 2rem;
   text-align: center;
-}
-.skills__item img {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
 }
 .skills__img {
   height: 100%;
@@ -384,6 +381,7 @@ body p {
   height: 100%;
   width: 100%;
 }
-.skills .reading {
+
+.reading {
   display: none;
 }
