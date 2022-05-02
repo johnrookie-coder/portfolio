@@ -177,7 +177,7 @@ body p {
 }
 .btn--primary {
   box-shadow: 0 0.5em 1em rgba(66, 0, 255, 0.3);
-  background-color: var(--primaryColor);
+  background-image: linear-gradient(to right bottom, #9900ff, #8800ff, #7600ff, #5f00ff, #4200ff);
   color: var(--colorWhite);
 }
 .btn--secondary {
@@ -228,7 +228,8 @@ body p {
 .projects {
   padding-block: min(15vh, 6rem);
   margin: 0 auto;
-  width: 90%;
+  width: 120rem;
+  max-width: 90%;
 }
 .projects p {
   width: 80%;
@@ -237,7 +238,6 @@ body p {
 .carousel {
   position: relative;
   height: 50vh;
-  width: 100%;
 }
 .carousel__container {
   position: relative;
@@ -259,6 +259,7 @@ body p {
   width: 100%;
 }
 .carousel__img {
+  border: 1px solid var(--gray);
   object-fit: cover;
   height: 100%;
   width: 100%;
@@ -353,6 +354,7 @@ body p {
   display: grid;
   padding-block: min(15vh, 12rem);
   margin: 0 auto;
+  width: 120rem;
   max-width: 90%;
 }
 .skills__list {

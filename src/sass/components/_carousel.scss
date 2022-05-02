@@ -1,104 +1,10 @@
-// .projects {
-//   padding-block: min(15vh, 6rem);
-
-//   margin: 0 auto;
-//   width: 90%;
-// }
-
-// .carousel {
-//   position: relative;
-
-//   height: 80vh;
-//   margin: 0 auto;
-//   width: 90%;
-
-//   &__container {
-//     // Relative to the carousel element
-//     position: relative;
-//     overflow: hidden;
-//     transition: transform 250ms ease-in;
-
-//     height: 100%;
-//     margin: 0 auto;
-//     width: 92.5%;
-//   }
-
-//   &__list {
-//     // Relative to the carousel__container
-//     position: relative;
-//     list-style: none;
-//     height: 100%;
-//   }
-
-//   &__slide {
-//     // Stack images on top of each other
-//     // Absolute to the carousel__list
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     width: 100%;
-//   }
-
-//   &__img {
-//     object-fit: cover;
-//     height: 100%;
-//     width: 100%;
-//   }
-
-//   // Absolute to the carousel element (left and right)
-//   &__btn {
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     font-size: 3.2rem;
-
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     text-align: center;
-
-//     background-color: #c0c0c0;
-//     color: var(--primaryText);
-
-//     cursor: pointer;
-//     border: none;
-//     outline: none;
-
-//     padding: 1.6rem 0;
-//     min-height: 14rem;
-//     min-width: 6rem;
-
-//     &--disabled {
-//       color: rgb(184, 184, 184);
-//       background-color: #ddd;
-//     }
-
-//     &--left {
-//       left: -3.2rem;
-//     }
-
-//     &--right {
-//       right: -3.2rem;
-//     }
-//   }
-
-//   // Absolute to the carousel__btn
-//   &__counter {
-//     position: absolute;
-//     top: 80%;
-//     transform: translateY(-80%);
-
-//     color: rgb(80, 77, 77);
-//     font-size: 1.4rem;
-//   }
-// }
-
 .projects {
   padding-block: min(15vh, 6rem);
 
   margin: 0 auto;
-  width: 90%;
+
+  width: 120rem;
+  max-width: 90%;
 
   p {
     width: 80%;
@@ -108,7 +14,7 @@
 .carousel {
   position: relative;
   height: 50vh;
-  width: 100%;
+  // width: 100%;
 
   &__container {
     // Relative to the carousel element
@@ -139,6 +45,7 @@
   }
 
   &__img {
+    border: 1px solid var(--gray);
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -205,7 +112,6 @@
     width: 2rem;
 
     &.active {
-      // background-color: rgb(80, 77, 77);
       background-color: var(--primaryText);
     }
   }

@@ -15,7 +15,14 @@
 
   &--primary {
     box-shadow: 0 0.5em 1em rgba(66, 0, 255, 0.3);
-    background-color: var(--primaryColor);
+    background-image: linear-gradient(
+      to right bottom,
+      #9900ff,
+      #8800ff,
+      #7600ff,
+      #5f00ff,
+      #4200ff
+    );
     color: var(--colorWhite);
   }
 
