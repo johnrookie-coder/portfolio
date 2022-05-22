@@ -1,0 +1,44 @@
+.contact {
+  margin: 4rem auto;
+  width: 120rem;
+  max-width: 90%;
+
+  display: flex;
+  flex-direction: column;
+
+  &__contents {
+    padding: 4rem 0;
+  }
+
+  .col--2 {
+    display: none;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      margin-left: 8rem;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  // Social container
+  &__social {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  // Social Icons
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    font-size: 1.6rem;
+
+    a {
+      color: var(--primaryColor);
+    }
+  }
+}
