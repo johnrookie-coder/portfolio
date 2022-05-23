@@ -1,5 +1,8 @@
 "use strict";
 
+const btnGetStarted = document.querySelector(".btnGetStarted");
+const linksEl = document.querySelector(".navigation__list");
+
 const carouselList = document.querySelector(".carousel__list");
 const slides = Array.from(carouselList.children);
 const spanCounter = document.createElement("span");
@@ -12,6 +15,28 @@ const carouselIndicator = Array.from(
 );
 
 let counter = 0;
+
+// Add "click" event to getStartedButton
+const btnGetStartedEvent = function () {
+  btnGetStarted.addEventListener("click", () => {
+    const skillsSection = document.querySelector(".skills");
+    skillsSection.scrollIntoView();
+  });
+};
+
+// Delegate "click" event to each of the links
+const linksEvent = function () {
+  linksEl.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (e.target.classList.contains("navigation__link")) {
+      const hash = e.target.getAttribute("href");
+      const path = document.querySelector(`${hash}`);
+
+      path.scrollIntoView();
+    } else return;
+  });
+};
 
 /**
  * This function generates the width of each slides, by multiplying the width of the slide[0] based on the index position of the next slide.
@@ -153,6 +178,10 @@ carouselIndicator.forEach((indicator, idx) => {
 // IIFE
 (function () {
   AOS.init();
+
+  linksEvent();
+  btnGetStartedEvent();
+
   slides.forEach(slidesWidth);
   createAndStyleCounter(spanCounter);
 })();

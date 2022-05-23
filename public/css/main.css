@@ -1,26 +1,4 @@
 @media (min-width: 768px) {
-  .header__contents {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .header__hero {
-    grid-column: 2/3;
-  }
-  .header__hero.desktop__img {
-    display: inline-block;
-    opacity: 1;
-  }
-  .header__hero.mobile__img {
-    display: none;
-    opacity: 0;
-  }
-  .header__text {
-    grid-column: 1/2;
-  }
-  .header__text p {
-    width: 75%;
-  }
-
   .navigation__icon {
     display: none;
     grid-column: 2/3;
@@ -38,7 +16,10 @@
   }
   .skills__container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+  .skills__container .col__2 {
+    display: none;
   }
   .skills__list {
     grid-template-columns: repeat(4, 12rem) !important;
@@ -114,6 +95,41 @@
   .image p {
     width: 75%;
   }
+}
+@media (min-width: 992px) {
+  .header__contents {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header__hero {
+    grid-column: 2/3;
+  }
+  .header__hero.desktop__img {
+    display: block;
+    opacity: 1;
+  }
+  .header__hero.mobile__img {
+    display: none;
+    opacity: 0;
+  }
+  .header__text {
+    grid-column: 1/2;
+  }
+  .header__text p {
+    width: 75%;
+  }
+
+  .skills__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skills__container .col__2 {
+    display: block;
+  }
+
+  .projects .carousel {
+    height: 80vh !important;
+    max-height: 80rem;
+  }
 
   .contact {
     flex-direction: row !important;
@@ -123,12 +139,6 @@
 .contact .col--2 {
     display: block !important;
     width: 50%;
-  }
-}
-@media (min-width: 992px) {
-  .projects .carousel {
-    height: 80vh !important;
-    max-height: 80rem;
   }
 }
 :root {
@@ -164,6 +174,7 @@ body {
   font-weight: 400;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 body p {
   font-size: 1.8rem;
@@ -229,6 +240,10 @@ body p {
   border: 1px solid var(--primaryText);
   border-radius: 4px;
   padding: 8px 1.6rem;
+  transition: background-color 350ms ease-in-out;
+}
+.btn--secondary:hover {
+  background-color: #4200ff;
 }
 
 .navigation {
@@ -249,6 +264,7 @@ body p {
   grid-column: 2/3;
   justify-self: end;
   align-self: center;
+  cursor: pointer;
   font-size: 3.2rem;
 }
 .navigation__list__container {
@@ -265,9 +281,16 @@ body p {
   list-style: none;
 }
 .navigation__link {
+  padding: 1rem 2rem;
   color: currentColor;
   font-size: 1.6rem;
   text-decoration: none;
+}
+.navigation__link:hover {
+  border-bottom: 2px solid #4200ff;
+}
+.navigation__link:hover.btn--secondary {
+  color: var(--mainBackgroundColor);
 }
 
 .projects {
@@ -282,8 +305,7 @@ body p {
 
 .carousel {
   position: relative;
-  height: 100%;
-  height: 20rem;
+  height: 28rem;
 }
 .carousel__container {
   position: relative;
@@ -431,6 +453,7 @@ body p {
 
 .skills {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  scroll-margin: 6rem;
 }
 .skills__container {
   display: grid;

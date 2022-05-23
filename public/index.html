@@ -36,16 +36,18 @@
         <div class="navigation__list__container">
           <ul class="navigation__list">
             <li class="navigation__item">
-              <a href="#" class="navigation__link">Skills</a>
+              <a href="#skills" class="navigation__link">Skills</a>
             </li>
             <li class="navigation__item">
-              <a href="#" class="navigation__link">Projects</a>
+              <a href="#projects" class="navigation__link">Projects</a>
             </li>
             <li class="navigation__item">
-              <a href="#" class="navigation__link">Web Redesigns</a>
+              <a href="#designs" class="navigation__link">Web Redesigns</a>
             </li>
             <li class="navigation__item">
-              <a href="#" class="navigation__link btn--secondary">Contact</a>
+              <a href="#contact" class="navigation__link btn--secondary"
+                >Contact</a
+              >
             </li>
           </ul>
         </div>
@@ -62,7 +64,7 @@
             specialized in bringing UI/UX design principles into all of my
             projects.
           </p>
-          <button class="btn btn--primary">
+          <button class="btn btn--primary btnGetStarted">
             Get Started <i class="ph-arrow-right ml-xs"></i>
           </button>
         </div>
@@ -82,7 +84,12 @@
     </header>
 
     <main>
-      <section class="skills" data-aos="fade-up" data-aos-duration="1000">
+      <section
+        class="skills"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        id="skills"
+      >
         <div class="skills__container">
           <div class="col__1">
             <span class="detail"> &minus; Skill sets</span>
@@ -132,7 +139,7 @@
         </div>
       </section>
 
-      <section class="projects">
+      <section class="projects" id="projects">
         <span class="detail"> &minus; Projects</span>
         <h2 class="headings mb--sm">What did I create?</h2>
         <p class="ml--xs mb--lg">
@@ -185,7 +192,7 @@
         </div>
       </section>
 
-      <section class="image">
+      <section class="image" id="designs">
         <div class="image__contents">
           <!-- Header -->
           <span class="detail"> &minus; Designs</span>
@@ -283,7 +290,7 @@
                 target="_blank"
               >
                 <img
-                  src="/img/projects/WellCraft.jpg"
+                  src="./img/projects/WellCraft.jpg"
                   alt="wellCraft"
                   class="img"
                 />
@@ -306,13 +313,12 @@
         </div>
       </section>
 
-      <section class="contact">
-        <!-- col--1 -->
+      <section class="contact" id="contact">
         <div class="col--1">
           <div class="contact__contents">
             <span class="detail"> &minus; Get in touch</span>
             <h2 class="headings mb--sm">Let's create progress together!</h2>
-            <p class="ml--xs mb--lg">
+            <p class="mb--lg">
               For all inquiries, you can contact and message me on any of the
               specified social mediums below.
             </p>
@@ -364,7 +370,7 @@
             </div>
           </div>
         </div>
-        <!-- col--2 images -->
+
         <div class="col--2">
           <img src="./img/sitting-8.svg" alt="sitting" />
         </div>
