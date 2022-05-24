@@ -53,9 +53,7 @@
   &::before {
     position: absolute;
     inset: 0;
-    // display: none;
-    // background-color: rgba(66, 0, 255, 0.075);
-    background-color: red;
+
     height: 100%;
     width: 100%;
   }
@@ -65,14 +63,36 @@
   }
 
   a {
+    & > .msg {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--mainBackgroundColor);
+      font-size: 1.8rem;
+      font-weight: 500;
+
+      height: 100%;
+      width: 100%;
+      z-index: 500;
+    }
+
     &:hover {
+      & > .msg {
+        opacity: 1;
+      }
+
       &::after {
         content: "";
         position: absolute;
         inset: 0;
 
         display: block;
-        background-color: rgba(66, 0, 255, 0.1);
+        background-color: rgba(119, 54, 255, 0.75);
 
         height: 100%;
         width: 100%;

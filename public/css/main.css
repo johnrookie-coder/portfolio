@@ -243,7 +243,34 @@ body p {
   transition: background-color 350ms ease-in-out;
 }
 .btn--secondary:hover {
-  background-color: #4200ff;
+  background-color: var(--primaryColor);
+}
+
+.container__top {
+  position: fixed;
+  top: 80%;
+  right: 5%;
+  z-index: 200;
+  display: none;
+  cursor: pointer;
+  height: 6rem;
+  width: 6rem;
+}
+.container__top .icon {
+  background-color: #605091;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.container__top i {
+  color: var(--mainBackgroundColor);
+  font-size: 2.4rem;
+}
+.container__top.active {
+  display: block;
 }
 
 .navigation {
@@ -535,19 +562,35 @@ body p {
 .imgBlock::before {
   position: absolute;
   inset: 0;
-  background-color: red;
   height: 100%;
   width: 100%;
 }
 .imgBlock .img {
   transition: transform 400ms ease-in-out;
 }
+.imgBlock a > .msg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mainBackgroundColor);
+  font-size: 1.8rem;
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
+  z-index: 500;
+}
+.imgBlock a:hover > .msg {
+  opacity: 1;
+}
 .imgBlock a:hover::after {
   content: "";
   position: absolute;
   inset: 0;
   display: block;
-  background-color: rgba(66, 0, 255, 0.1);
+  background-color: rgba(119, 54, 255, 0.75);
   height: 100%;
   width: 100%;
 }

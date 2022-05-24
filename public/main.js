@@ -2,6 +2,10 @@
 
 const btnGetStarted = document.querySelector(".btnGetStarted");
 const linksEl = document.querySelector(".navigation__list");
+const backToTop = document.querySelector(".container__top ");
+const headerSection = document.querySelector(".header");
+const skillsSection = document.querySelector(".skills");
+const socialContainer = document.querySelector(".contact__social");
 
 const carouselList = document.querySelector(".carousel__list");
 const slides = Array.from(carouselList.children);
@@ -19,7 +23,6 @@ let counter = 0;
 // Add "click" event to getStartedButton
 const btnGetStartedEvent = function () {
   btnGetStarted.addEventListener("click", () => {
-    const skillsSection = document.querySelector(".skills");
     skillsSection.scrollIntoView();
   });
 };
@@ -173,6 +176,36 @@ carouselIndicator.forEach((indicator, idx) => {
       spanCounter.textContent = `${counter + 1}/${slides.length}`;
     }
   });
+});
+
+// Back to top
+backToTop.addEventListener("click", function () {
+  headerSection.scrollIntoView();
+});
+
+// Intersection Observer
+const callbackFn = function (entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) backToTop.classList.add("active");
+  if (entry.isIntersecting) backToTop.classList.remove("active");
+};
+
+const options = {
+  root: null,
+  threshold: 0,
+};
+
+const headerObserver = new IntersectionObserver(callbackFn, options);
+headerObserver.observe(headerSection);
+
+socialContainer.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("contact__social")) {
+    const url = e.target.children[1].children[0].getAttribute("href");
+    window.open(url);
+  }
+
+  if (e.target.classList.contains("contact__social")) return;
 });
 
 // IIFE

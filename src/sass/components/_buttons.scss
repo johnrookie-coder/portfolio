@@ -34,7 +34,41 @@
     transition: background-color 350ms ease-in-out;
 
     &:hover {
-      background-color: #4200ff;
+      background-color: var(--primaryColor);
     }
+  }
+}
+
+// BACK TO TOP
+.container__top {
+  position: fixed;
+  top: 80%;
+  right: 5%;
+  z-index: 200;
+
+  display: none;
+  cursor: pointer;
+  height: 6rem;
+  width: 6rem;
+
+  .icon {
+    background-color: hsl(255, 29%, 44%);
+    // background-color: var(--primaryText);
+    border-radius: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  i {
+    color: var(--mainBackgroundColor);
+    font-size: 2.4rem;
+  }
+
+  &.active {
+    display: block;
   }
 }
