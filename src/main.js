@@ -200,12 +200,18 @@ const headerObserver = new IntersectionObserver(callbackFn, options);
 headerObserver.observe(headerSection);
 
 socialContainer.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("contact__social")) {
+  if (e.target.classList.contains("contact__social")) {
     const url = e.target.children[1].children[0].getAttribute("href");
     window.open(url);
   }
 
-  if (e.target.classList.contains("contact__social")) return;
+  if (e.target.classList.contains("icon__img")) {
+    const designLink = e.target
+      .closest(".contact__item")
+      .children[1].children[0].getAttribute("href");
+    window.open(designLink);
+  }
+  if (!e.target.classList.contains("contact__social")) return;
 });
 
 // IIFE

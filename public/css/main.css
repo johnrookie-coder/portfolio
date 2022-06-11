@@ -1,13 +1,11 @@
 @media (min-width: 768px) {
   .navigation__icon {
-    display: none;
     grid-column: 2/3;
     justify-self: end;
     align-self: center;
     font-size: 3.2rem;
   }
   .navigation__list__container {
-    display: block !important;
     grid-column: 2/3;
   }
 
@@ -60,11 +58,11 @@
   }
   .projects .carousel__btn--left {
     display: inline-block;
-    left: -3.2rem;
+    left: -5rem;
   }
   .projects .carousel__btn--right {
     display: inline-block;
-    right: -3.2rem;
+    right: -5rem;
   }
 
   .image__gallery {
@@ -118,6 +116,13 @@
     width: 75%;
   }
 
+  .navigation__icon {
+    display: none;
+  }
+  .navigation__list__container {
+    display: block !important;
+  }
+
   .skills__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -129,6 +134,14 @@
   .projects .carousel {
     height: 80vh !important;
     max-height: 80rem;
+  }
+  .projects .carousel__btn--left {
+    display: inline-block;
+    left: -3.2rem !important;
+  }
+  .projects .carousel__btn--right {
+    display: inline-block;
+    right: -3.2rem !important;
   }
 
   .contact {
@@ -218,6 +231,10 @@ body p {
   text-transform: uppercase;
 }
 
+.icon__img {
+  cursor: pointer;
+}
+
 .btn {
   display: flex;
   justify-content: space-between;
@@ -233,8 +250,12 @@ body p {
 }
 .btn--primary {
   box-shadow: 0 0.5em 1em rgba(66, 0, 255, 0.3);
-  background-image: linear-gradient(to right bottom, #9900ff, #8800ff, #7600ff, #5f00ff, #4200ff);
+  background-color: #7600ff;
   color: var(--colorWhite);
+  transition: background-color 400ms ease-in-out;
+}
+.btn--primary:hover {
+  background-color: #4200ff;
 }
 .btn--secondary {
   border: 1px solid var(--primaryText);
