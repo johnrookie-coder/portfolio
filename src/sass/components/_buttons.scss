@@ -15,14 +15,6 @@
 
   &--primary {
     box-shadow: 0 0.5em 1em rgba(66, 0, 255, 0.3);
-    // background-image: linear-gradient(
-    //   to right bottom,
-    //   #9900ff,
-    //   #8800ff,
-    //   #7600ff,
-    //   #5f00ff,
-    //   #4200ff
-    // );
     background-color: #7600ff;
     color: var(--colorWhite);
     transition: background-color 400ms ease-in-out;
@@ -59,7 +51,6 @@
 
   .icon {
     background-color: hsl(255, 29%, 44%);
-    // background-color: var(--primaryText);
     border-radius: 100%;
 
     display: flex;

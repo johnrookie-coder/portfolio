@@ -1,4 +1,7 @@
 "use strict";
+const navigation = document.querySelector(".navigation");
+const mobileMenu = document.querySelector(".mobile__nav");
+const hamburgerMenu = document.querySelector(".hamburger");
 
 const btnGetStarted = document.querySelector(".btnGetStarted");
 const linksEl = document.querySelector(".navigation__list");
@@ -19,6 +22,19 @@ const carouselIndicator = Array.from(
 );
 
 let counter = 0;
+
+// Add click event to hamburger menu / mobile version of the website
+const navEvent = function () {
+  navigation.addEventListener("click", (e) => {
+    if (
+      e.target.closest(".navigation__icon") ||
+      e.target.classList.contains("navigation__icon")
+    ) {
+      mobileMenu.classList.toggle("is-active");
+      hamburgerMenu.classList.toggle("is-active");
+    }
+  });
+};
 
 // Add "click" event to getStartedButton
 const btnGetStartedEvent = function () {
@@ -211,13 +227,19 @@ socialContainer.addEventListener("click", (e) => {
       .children[1].children[0].getAttribute("href");
     window.open(designLink);
   }
-  if (!e.target.classList.contains("contact__social")) return;
+
+  if (
+    !e.target.classList.contains("contact__social") ||
+    e.target.classList.contains("contact__item")
+  )
+    return;
 });
 
 // IIFE
 (function () {
   AOS.init();
 
+  navEvent();
   linksEvent();
   btnGetStartedEvent();
 

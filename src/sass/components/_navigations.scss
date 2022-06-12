@@ -2,6 +2,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-top: 2.4rem;
+  align-items: center;
+
+  // Make the navigation fixed on top
+  position: fixed;
+  inset: 0;
+  height: 8rem;
+  margin: 0 auto;
+  width: 90%;
+  z-index: 200;
 
   &__logo {
     color: var(--logoColor);

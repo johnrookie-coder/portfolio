@@ -2,8 +2,6 @@
 @media (min-width: 768px) {
   .navigation {
     &__icon {
-      // display: none;
-
       grid-column: 2 / 3;
       justify-self: end;
       align-self: center;
@@ -12,7 +10,6 @@
     }
 
     &__list__container {
-      // display: block !important;
       grid-column: 2 / 3;
     }
   }
@@ -23,7 +20,6 @@
 
     &__container {
       display: grid;
-      // grid-template-columns: repeat(2, 1fr);
       grid-template-columns: 1fr;
 
       .col__2 {
@@ -166,13 +162,13 @@
   }
 
   .navigation {
-    &__icon {
-      display: none;
-    }
-
     &__list__container {
       display: block !important;
     }
+  }
+
+  .hamburger.navigation__icon {
+    display: none;
   }
 
   // Skills
