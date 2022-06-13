@@ -2,6 +2,7 @@
 const navigation = document.querySelector(".navigation");
 const mobileMenu = document.querySelector(".mobile__nav");
 const hamburgerMenu = document.querySelector(".hamburger");
+const wrapper = document.querySelector(".wrapper");
 
 const btnGetStarted = document.querySelector(".btnGetStarted");
 const linksEl = document.querySelector(".navigation__list");
@@ -56,6 +57,21 @@ const linksEvent = function () {
     } else return;
   });
 };
+
+const linksElMobile = document.querySelector(".navigation__list--mobile");
+linksElMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (e.target.classList.contains("navigation__link")) {
+    const hash = e.target.getAttribute("href");
+    const path = document.querySelector(`${hash}`);
+
+    hamburgerMenu.classList.remove("is-active");
+    mobileMenu.classList.remove("is-active");
+
+    path.scrollIntoView();
+  } else return;
+});
 
 /**
  * This function generates the width of each slides, by multiplying the width of the slide[0] based on the index position of the next slide.
@@ -203,19 +219,38 @@ backToTop.addEventListener("click", function () {
 const callbackFn = function (entries) {
   const [entry] = entries;
 
-  if (!entry.isIntersecting) backToTop.classList.add("active");
-  if (entry.isIntersecting) backToTop.classList.remove("active");
+  if (!entry.isIntersecting) {
+    wrapper.style.position = "fixed";
+    navigation.style.position = "fixed";
+
+    backToTop.classList.add("active");
+  }
+
+  if (entry.isIntersecting) {
+    wrapper.style.position = "absolute";
+    navigation.style.position = "absolute";
+    backToTop.classList.remove("active");
+  }
 };
 
 const options = {
   root: null,
   threshold: 0,
+  rootMargin: "-90px",
 };
 
 const headerObserver = new IntersectionObserver(callbackFn, options);
 headerObserver.observe(headerSection);
 
+// Contact Details "click" event
 socialContainer.addEventListener("click", (e) => {
+  console.log(e.target);
+  if (
+    e.target.classList.contains("contact__social") ||
+    e.target.classList.contains("contact__item")
+  )
+    return;
+
   if (e.target.classList.contains("contact__social")) {
     const url = e.target.children[1].children[0].getAttribute("href");
     window.open(url);
@@ -227,12 +262,6 @@ socialContainer.addEventListener("click", (e) => {
       .children[1].children[0].getAttribute("href");
     window.open(designLink);
   }
-
-  if (
-    !e.target.classList.contains("contact__social") ||
-    e.target.classList.contains("contact__item")
-  )
-    return;
 });
 
 // IIFE

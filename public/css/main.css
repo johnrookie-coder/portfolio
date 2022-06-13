@@ -272,7 +272,7 @@ body p {
   position: fixed;
   top: 80%;
   right: 5%;
-  z-index: 200;
+  z-index: 1000;
   display: none;
   cursor: pointer;
   height: 6rem;
@@ -295,17 +295,26 @@ body p {
   display: block;
 }
 
+.wrapper {
+  position: absolute;
+  inset: 0;
+  height: 8rem;
+  z-index: 200;
+  background-image: linear-gradient(to right top, #f2f2f2, #ebeaef, #e4e3ec, #dddbe9, #d6d4e6);
+  height: 7rem;
+  width: 100%;
+}
+
 .navigation {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-top: 2.4rem;
   align-items: center;
-  position: fixed;
+  position: absolute;
   inset: 0;
-  height: 8rem;
+  height: 7rem;
+  z-index: 300;
   margin: 0 auto;
   width: 90%;
-  z-index: 200;
 }
 .navigation__logo {
   color: var(--logoColor);
@@ -354,6 +363,7 @@ body p {
   margin: 0 auto;
   width: 120rem;
   max-width: 90%;
+  scroll-margin: 8rem;
 }
 .projects p {
   width: 80%;
@@ -482,7 +492,7 @@ body p {
   display: block;
   color: var(--colorWhite);
   transition: 300ms ease-out;
-  z-index: 98;
+  z-index: 100;
   background-image: linear-gradient(to right top, #f2f2f2, #ebeaef, #e4e3ec, #dddbe9, #d6d4e6);
   min-height: 100vh;
   width: 100%;
@@ -520,6 +530,7 @@ body p {
   max-width: 90%;
   display: flex;
   flex-direction: column;
+  scroll-margin: 8rem;
 }
 .contact__contents {
   padding: 4rem 0;
@@ -628,6 +639,7 @@ body p {
   color: var(--colorWhite);
   padding-block: min(15vh, 6rem);
   margin: 8rem 0 4rem 0;
+  scroll-margin: 8rem;
 }
 .image .detail__text {
   display: inline-block;
@@ -683,7 +695,7 @@ body p {
   font-weight: 500;
   height: 100%;
   width: 100%;
-  z-index: 500;
+  z-index: 100;
 }
 .imgBlock a:hover > .msg {
   opacity: 1;

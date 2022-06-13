@@ -12,6 +12,8 @@
   padding-block: min(15vh, 6rem);
   margin: 8rem 0 4rem 0;
 
+  scroll-margin: 8rem;
+
   .detail__text {
     display: inline-block;
     background-color: var(--colorWhite);
@@ -78,7 +80,7 @@
 
       height: 100%;
       width: 100%;
-      z-index: 500;
+      z-index: 100;
     }
 
     &:hover {
