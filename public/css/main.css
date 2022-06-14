@@ -389,6 +389,7 @@ body p {
   position: absolute;
   top: 0;
   bottom: 0;
+  cursor: pointer;
   margin-top: 2.4rem;
   width: 100%;
 }
